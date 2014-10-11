@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 public class MyService extends Service{
 
-    private BroadcastReceiver mReceiver;
+    private MyReceiver mReceiver;
 
     @Override
     public void onCreate()
