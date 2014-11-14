@@ -9,22 +9,47 @@
     tools:context=".LockScreenActivity">
 
 
+    <TextClock
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textClock"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="One"
+        android:id="@+id/Frag_btn1"
+        android:layout_toStartOf="@+id/textClock"
+        android:onClick="selectFrag"
+        android:layout_below="@+id/Configbtn"
+        android:layout_marginTop="66dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Two"
+        android:id="@+id/Frag_btn2"
+        android:onClick="selectFrag"
+        android:layout_alignTop="@+id/Frag_btn1"
+        android:layout_toStartOf="@+id/Configbtn" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Configure"
         android:id="@+id/Configbtn"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="104dp" />
+        android:layout_alignTop="@+id/textClock"
+        android:layout_alignParentEnd="true" />
 
-    <TextClock
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textClock"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/Configbtn" />
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="example.Android.issuxark11.simplelockscreen.FragmentOne"
+        android:id="@+id/fragment_main"
+        android:layout_below="@+id/Frag_btn1"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
