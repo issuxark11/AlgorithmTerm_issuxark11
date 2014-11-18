@@ -97,7 +97,6 @@ public class LockScreenActivity extends Activity {
             pressure.setText("" + weather.currentCondition.getPressure() + " hPa");
             windSpeed.setText("" + weather.wind.getSpeed() + " mps");
             windDeg.setText("" + weather.wind.getDeg() + "�");
-
         }
     }
 
