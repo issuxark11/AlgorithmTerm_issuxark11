@@ -7,6 +7,7 @@ import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -14,6 +15,8 @@ import android.widget.Button;
 import android.app.Fragment;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import org.json.JSONException;
 
 public class LockScreenActivity extends Activity {
 
@@ -91,8 +94,8 @@ public class LockScreenActivity extends Activity {
             }
 
             cityText.setText(weather.location.getCity() + "," + weather.location.getCountry());
-            weatherCondition.setText(weather.currentCondition.getCondition() + "(" + weather.currentCondition.getDescr() + ")");
-            temp.setText("" + Math.round((weather.temperature.getTemp() - 273.15)) + "℃");
+            weatherCondition.setText(weather.currentCondition.getCondition() + "(" + weather.currentCondition.getWeatherdescribe() + ")");
+            temp.setText("" + Math.round((weather.temperature.getTemperature() - 273.15)) + "℃");
             hum.setText("" + weather.currentCondition.getHumidity() + "%");
             pressure.setText("" + weather.currentCondition.getPressure() + " hPa");
             windSpeed.setText("" + weather.wind.getSpeed() + " mps");
