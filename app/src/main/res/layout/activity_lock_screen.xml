@@ -58,6 +58,17 @@
         android:name="example.Android.issuxark11.simplelockscreen.FragmentOne"
         android:id="@+id/fragment_main"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/Configbtn" />
+        android:layout_below="@+id/Configbtn"
+        android:layout_above="@+id/SetPosImg"/>
+
+    <ImageView
+        android:id="@+id/SetPosImg"
+        android:layout_width="250dp"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="31dp"
+        android:src="@drawable/rabbit_1" />
+
 
 </RelativeLayout>
