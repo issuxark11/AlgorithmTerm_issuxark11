@@ -12,11 +12,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.app.Fragment;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.json.JSONException;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class LockScreenActivity extends Activity {
 
@@ -30,6 +32,11 @@ public class LockScreenActivity extends Activity {
     private TextView windDeg;
     private TextView hum;
     private ImageView imgView;
+
+    long now = System.currentTimeMillis();  // 현재시간
+    Date date = new Date(now);
+    SimpleDateFormat CurHourFormat = new SimpleDateFormat("HH");
+    String strCurHour = CurHourFormat.format(date);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +56,8 @@ public class LockScreenActivity extends Activity {
             }
         });
         // LockScreen End
+
+        selectFrag(strCurHour);  // 시간에 따라 Fragment 선택
 
         // 날씨 정보 Start
         String city = "Seoul,KOR";
@@ -103,12 +112,11 @@ public class LockScreenActivity extends Activity {
         }
     }
 
-    public void selectFrag(View view) {     // Fragment Select
+    public void selectFrag(String curHour) {     // Fragment Select
         Fragment fr;
 
-        if(view == findViewById(R.id.Frag_btn2)) {
+        if(curHour.equals("20") || curHour.equals("21") || curHour.equals("22") || curHour.equals("23")){
             fr = new FragmentTwo();
-
         }else {
             fr = new FragmentOne();
         }

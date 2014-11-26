@@ -34,9 +34,8 @@ public class MyReceiver extends BroadcastReceiver {
                 try {
                     pendingIntent.send();
                 } catch (Exception ex) {
-                    ;
-                }
 
+                }
 
             } else if (intent.getAction().equals(Intent.ACTION_SCREEN_ON)) {
                 screenoff = false;
