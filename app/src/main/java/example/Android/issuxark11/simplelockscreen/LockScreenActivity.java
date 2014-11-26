@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.os.SystemClock;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
-import java.io.*;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -23,13 +22,19 @@ import android.widget.Toast;
 
 import org.json.JSONException;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import java.io.File;
 
 @SuppressLint({ "ClickableViewAccessibility", "NewApi" })
 
 public class LockScreenActivity extends Activity {
-    int i=0;
+    int i=0;   // Customizing
     private Button ConfBtn;     // 설정 버튼 -> 나중에 없애기!!
 
     private TextView cityText;  // 날씨 정보
@@ -156,7 +161,6 @@ public class LockScreenActivity extends Activity {
                 }
                 return true;
             }
-
         });
         // Slide End
     }
@@ -177,7 +181,6 @@ public class LockScreenActivity extends Activity {
             dir.mkdirs();
             Toast.makeText(getApplicationContext(), "Success folder", Toast.LENGTH_SHORT).show();
         }
-
         return dir;
     }
 
@@ -238,7 +241,6 @@ public class LockScreenActivity extends Activity {
         }
         return null;
     }
-
 
     public boolean onKeyDown(int keyCode,KeyEvent event){
         if((keyCode==KeyEvent.KEYCODE_BACK)){

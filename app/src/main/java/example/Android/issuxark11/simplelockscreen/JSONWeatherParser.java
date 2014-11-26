@@ -36,23 +36,9 @@ public class JSONWeatherParser {
         weather.currentCondition.setIcon(getString("icon", JSONWeather));
 
         JSONObject mainObj = getObject("main", jObj);
-        weather.currentCondition.setHumidity(getInt("humidity", mainObj));
-        weather.currentCondition.setPressure(getInt("pressure", mainObj));
         weather.temperature.setMaxTemp(getFloat("temp_max", mainObj));
         weather.temperature.setMinTemp(getFloat("temp_min", mainObj));
         weather.temperature.setTemp(getFloat("temp", mainObj));
-
-        // Wind
-        JSONObject wObj = getObject("wind", jObj);
-        weather.wind.setSpeed(getFloat("speed", wObj));
-        weather.wind.setDeg(getFloat("deg", wObj));
-
-        // Clouds
-        JSONObject cObj = getObject("clouds", jObj);
-        weather.clouds.setPerc(getInt("all", cObj));
-
-        // We download the icon to show
-
 
         return weather;
     }
