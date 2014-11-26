@@ -199,7 +199,6 @@ public class LockScreenActivity extends Activity {
         return file;
     }
 
-
     private boolean writeFile(File file , byte[] file_content){
         boolean result;
         FileOutputStream fos;
@@ -286,7 +285,7 @@ public class LockScreenActivity extends Activity {
 
         if(curHour.equals("20") || curHour.equals("21") || curHour.equals("22") || curHour.equals("23")){
             fr = new FragmentTwo();
-        } else if (curHour.equals("24") || curHour.equals("01") || curHour.equals("2")){
+        } else if (curHour.equals("24") || curHour.equals("01") || curHour.equals("02")){
             fr = new FragmentThree();
         }
         else {

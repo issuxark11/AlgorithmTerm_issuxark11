@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import example.Android.issuxark11.simplelockscreen.R;
-
 public class ConfigActivity extends Activity {
 
     private Button onBtn, offBtn;
