@@ -11,7 +11,12 @@
     <TextClock
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textClock"
+        android:id="@+id/textClock" />
+
+    <ImageView
+        android:id="@+id/weatherIcon"
+        android:layout_width="150px"
+        android:layout_height="150px"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
@@ -20,14 +25,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/cityText"
         android:layout_below="@+id/textClock"
-        android:layout_centerHorizontal="true" />
-
-    <ImageView
-        android:id="@+id/weatherIcon"
-        android:layout_width="150px"
-        android:layout_height="150px"
-        android:layout_below="@id/cityText"
-        android:layout_alignParentLeft="true" />
+        />
 
     <TextView
         android:id="@+id/weatherCondition"
