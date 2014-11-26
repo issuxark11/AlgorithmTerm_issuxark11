@@ -1,7 +1,6 @@
 package example.Android.issuxark11.simplelockscreen;
 
 import android.app.Service;
-import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.IBinder;

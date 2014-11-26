@@ -15,20 +15,11 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Configure"
-        android:id="@+id/Configbtn"
-        android:layout_below="@+id/textClock"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="61dp" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/cityText"
-        android:layout_below="@+id/Configbtn"
+        android:layout_below="@+id/textClock"
         android:layout_centerHorizontal="true" />
 
     <ImageView
@@ -54,65 +45,14 @@
         android:layout_alignBaseline="@id/weatherCondition"
         android:layout_toRightOf="@id/weatherCondition"/>
 
-    <TextView
-        android:id="@+id/pressLab"
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@id/weatherCondition"
-        android:text="Pressure"
-        android:layout_marginTop="15dp" />
-
-    <TextView
-        android:id="@+id/press"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@id/pressLab"
-        android:layout_toRightOf="@id/pressLab"
-        style="@style/dataStyle"/>
-
-    <TextView
-        android:id="@+id/humLab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@id/pressLab"
-        android:text="Humidity" />
-
-    <TextView
-        android:id="@+id/hum"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@id/humLab"
-        android:layout_toRightOf="@id/humLab"
-        android:layout_marginLeft="4dp"
-        style="@style/dataStyle"/>
-
-    <TextView
-        android:id="@+id/windLab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@id/humLab"
-        android:text="Wind" />
-
-    <TextView
-        android:id="@+id/windSpeed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@id/windLab"
-        android:layout_toRightOf="@id/windLab"
-        android:layout_marginLeft="4dp"
-        style="@style/dataStyle" />
-
-    <TextView
-        android:id="@+id/windDeg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@id/windLab"
-        android:layout_toRightOf="@id/windSpeed"
-        android:layout_marginLeft="4dp"
-        style="@style/dataStyle"/>
+        android:text="Configure"
+        android:id="@+id/Configbtn"
+        android:layout_below="@+id/textClock"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="61dp" />
 
     <fragment
         android:layout_width="match_parent"

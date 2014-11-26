@@ -27,10 +27,6 @@ public class LockScreenActivity extends Activity {
     private TextView cityText;  // 날씨 정보
     private TextView weatherCondition;
     private TextView temp;
-    private TextView pressure;
-    private TextView windSpeed;
-    private TextView windDeg;
-    private TextView hum;
     private ImageView imgView;
 
     long now = System.currentTimeMillis();  // 현재시간
@@ -64,10 +60,6 @@ public class LockScreenActivity extends Activity {
         cityText = (TextView) findViewById(R.id.cityText);
         weatherCondition = (TextView) findViewById(R.id.weatherCondition);
         temp = (TextView) findViewById(R.id.temp);
-        hum = (TextView) findViewById(R.id.hum);
-        pressure = (TextView) findViewById(R.id.press);
-        windSpeed = (TextView) findViewById(R.id.windSpeed);
-        windDeg = (TextView) findViewById(R.id.windDeg);
         imgView = (ImageView) findViewById(R.id.weatherIcon);
 
         JSONWeatherTask task = new JSONWeatherTask();
@@ -105,10 +97,6 @@ public class LockScreenActivity extends Activity {
             cityText.setText(weather.location.getCity() + "," + weather.location.getCountry());
             weatherCondition.setText(weather.currentCondition.getCondition() + "(" + weather.currentCondition.getWeatherdescribe() + ")");
             temp.setText("" + Math.round((weather.temperature.getTemperature() - 273.15)) + "℃");
-            hum.setText("" + weather.currentCondition.getHumidity() + "%");
-            pressure.setText("" + weather.currentCondition.getPressure() + " hPa");
-            windSpeed.setText("" + weather.wind.getSpeed() + " mps");
-            windDeg.setText("" + weather.wind.getDeg() + "�");
         }
     }
 
