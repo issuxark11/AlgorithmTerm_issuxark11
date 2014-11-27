@@ -109,7 +109,7 @@ public class LockScreenActivity extends Activity {
 
         SetPosImg.setOnTouchListener(new View.OnTouchListener()
         {
-            int viewX=location[0]+187;
+            int viewX=location[0]+195;
 
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -285,9 +285,9 @@ public class LockScreenActivity extends Activity {
     public void selectFrag(String curHour) {     // Fragment Select
         Fragment fr;
 
-        if(curHour.equals("20") || curHour.equals("21") || curHour.equals("22") || curHour.equals("23")){
+        if(curHour.equals("12") || curHour.equals("13") || curHour.equals("14") || curHour.equals("15") || curHour.equals("16") || curHour.equals("17")){
             fr = new FragmentTwo();
-        } else if (curHour.equals("24") || curHour.equals("01") || curHour.equals("02")){
+        } else if (curHour.equals("24") || curHour.equals("01") || curHour.equals("02") || curHour.equals("22") || curHour.equals("23") || curHour.equals("21")){
             fr = new FragmentThree();
         }
         else {

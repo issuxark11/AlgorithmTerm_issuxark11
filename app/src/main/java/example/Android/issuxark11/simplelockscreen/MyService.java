@@ -18,8 +18,8 @@ public class MyService extends Service{
         filter.addAction(Intent.ACTION_SCREEN_OFF);
         mReceiver = new MyReceiver();
         registerReceiver(mReceiver,filter);
-        Toast toast = Toast.makeText(this, "Start LockScreen Service", Toast.LENGTH_SHORT);
-        toast.show();
+        //Toast toast = Toast.makeText(this, "Start LockScreen Service", Toast.LENGTH_SHORT);
+        //toast.show();
     }
 
     @Override
@@ -45,8 +45,8 @@ public class MyService extends Service{
     public void onDestroy()
     {
         unregisterReceiver(mReceiver);
-        Toast toast = Toast.makeText(this, "Finish LockScreen Service", Toast.LENGTH_SHORT);
-        toast.show();
+        //Toast toast = Toast.makeText(this, "Finish LockScreen Service", Toast.LENGTH_SHORT);
+        //toast.show();
     }
 }
 
