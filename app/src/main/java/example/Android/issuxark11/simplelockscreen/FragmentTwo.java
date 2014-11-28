@@ -5,15 +5,26 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 
 public class FragmentTwo extends Fragment {
+    private static String ScoreURL = "http://algoalgo.esy.es/algo.php";
+    WebView webview;
+
     @Override
-    public View onCreateView(LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        /**
-         * Inflate the layout for this fragment
-         */
-        return inflater.inflate(
-                R.layout.fragment_two, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_two, container, false);
+        webview = (WebView) view.findViewById(R.id.webViewScore);
+        webview.post(new Runnable() {
+            @Override
+            public void run() {
+                webview.setHorizontalScrollBarEnabled(false); // 세로 scroll 제거
+                webview.setVerticalScrollBarEnabled(false); // 가로 scroll 제거
+                webview.getSettings().setUseWideViewPort(true);
+                webview.setInitialScale(1);
+                webview.loadUrl(ScoreURL);
+            }
+        });
+        return view;
     }
 }
