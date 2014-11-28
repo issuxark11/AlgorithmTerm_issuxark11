@@ -1,6 +1,7 @@
 package example.Android.issuxark11.simplelockscreen;
 
 import android.annotation.SuppressLint;
+import android.app.ActionBar;
 import android.os.SystemClock;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -37,6 +38,7 @@ public class LockScreenActivity extends Activity {
     int i=0;   // Customizing
     private Button ConfBtn;     // 설정 버튼 -> 나중에 없애기!!
 
+    private TextView dateText;  // 날짜 표시
     private TextView cityText;  // 날씨 정보
     private TextView weatherCondition;
     private TextView temp;
@@ -44,7 +46,9 @@ public class LockScreenActivity extends Activity {
 
     long now = System.currentTimeMillis();  // 현재시간
     Date date = new Date(now);
+    SimpleDateFormat CurDateFormat = new SimpleDateFormat("yyyy년 MM월 dd일");
     SimpleDateFormat CurHourFormat = new SimpleDateFormat("HH");
+    String strCurDate = CurDateFormat.format(date);
     String strCurHour = CurHourFormat.format(date);
 
     @Override
@@ -52,9 +56,11 @@ public class LockScreenActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         // LockScreen Start
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON |WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON | WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
         // 순정 잠금 화면 없애기
         setContentView(R.layout.activity_lock_screen);
+        ActionBar actionBar = getActionBar();
+        actionBar.hide();
 
         ConfBtn = (Button) findViewById(R.id.Configbtn);
         ConfBtn.setOnClickListener(new View.OnClickListener() {
@@ -66,6 +72,8 @@ public class LockScreenActivity extends Activity {
         });
         // LockScreen End
 
+        dateText = (TextView) findViewById(R.id.dateText);
+        dateText.setText(strCurDate);   // 오늘 날짜 출력
         selectFrag(strCurHour);  // 시간에 따라 Fragment 선택
 
         // 날씨 정보 Start
@@ -101,8 +109,8 @@ public class LockScreenActivity extends Activity {
         gi_like=Integer.parseInt(g_like);
         gi_hate=Integer.parseInt(g_hate);
 
-        Toast.makeText(getApplicationContext(), g_like, Toast.LENGTH_SHORT).show();
-        Toast.makeText(getApplicationContext(), g_hate, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), g_like, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), g_hate, Toast.LENGTH_SHORT).show();
 
         final int[] location= new int[2];
         SetPosImg.getLocationOnScreen(location);
@@ -287,7 +295,7 @@ public class LockScreenActivity extends Activity {
 
         if(curHour.equals("12") || curHour.equals("13") || curHour.equals("14") || curHour.equals("15") || curHour.equals("16") || curHour.equals("17")){
             fr = new FragmentTwo();
-        } else if (curHour.equals("24") || curHour.equals("01") || curHour.equals("02") || curHour.equals("22") || curHour.equals("23") || curHour.equals("21")){
+        } else if (curHour.equals("01") || curHour.equals("20") || curHour.equals("21") || curHour.equals("22") || curHour.equals("23") || curHour.equals("24")){
             fr = new FragmentThree();
         }
         else {
