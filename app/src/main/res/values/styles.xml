@@ -24,4 +24,15 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="Theme.Custom" parent="@android:Theme">
+        <item name="android:calendarViewStyle">@style/Widget.CalendarView.Custom</item>
+    </style>
+
+    <style name="Widget.CalendarView.Custom" parent="android:Widget.CalendarView">
+        <item name="android:focusedMonthDateColor">blue</item>
+        <item name="android:weekNumberColor">red</item>
+        <item name="android:weekDayTextAppearance">@android:style/TextAppearance.Medium</item>
+        <item name="android:dateTextAppearance">@android:style/TextAppearance.Medium</item>
+    </style>
+
 </resources>
