@@ -114,7 +114,6 @@ public class LockScreenActivity extends Activity {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
 
-
                 if(event.getX()<viewX+40 && event.getX()>viewX-40)
                     i=1;
                 else if(event.getX()>=viewX+40 && event.getX()<viewX+70 && i==1)
@@ -131,7 +130,7 @@ public class LockScreenActivity extends Activity {
                     String content = s_like+"c"+s_hate;
                     writeFile(file , content.getBytes());
 
-                    //SystemClock.sleep(1000);
+                    SystemClock.sleep(1000);
                     moveTaskToBack(true);
                     finish();
                     System.exit(0);
@@ -174,6 +173,7 @@ public class LockScreenActivity extends Activity {
         }
         return -1;
     }
+
     private File makeDirectory(String dir_path){
         File dir = new File(dir_path);
         if (!dir.exists())
