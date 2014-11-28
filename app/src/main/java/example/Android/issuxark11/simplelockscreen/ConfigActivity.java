@@ -14,8 +14,6 @@ public class ConfigActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_config);
-        ActionBar actionBar = getActionBar();
-        actionBar.hide();
 
         onBtn = (Button) findViewById(R.id.onBtn);
         offBtn = (Button) findViewById(R.id.offBtn);
