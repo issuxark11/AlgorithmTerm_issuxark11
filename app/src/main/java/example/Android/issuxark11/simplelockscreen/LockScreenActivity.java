@@ -265,8 +265,6 @@ public class LockScreenActivity extends Activity {
 
             try {
                 weather = JSONWeatherParser.getWeather(data);
-
-                // Let's retrieve the icon
                 weather.iconData = ((new WeatherHttpClient()).getImage(weather.currentCondition.getIcon()));
 
             } catch (JSONException e) {
