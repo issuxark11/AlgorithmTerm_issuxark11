@@ -70,8 +70,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:layout_below="@+id/Configbtn"
-        android:layout_above="@+id/SetPosImg"
-        android:layout_alignParentStart="true" />
+        android:layout_above="@+id/SetPosImg" />
 
     <ImageView
         android:id="@+id/SetPosImg"
