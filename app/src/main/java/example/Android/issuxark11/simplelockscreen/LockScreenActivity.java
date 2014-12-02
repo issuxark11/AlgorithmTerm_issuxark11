@@ -295,11 +295,14 @@ public class LockScreenActivity extends Activity {
             fr = new FragmentTwo();
         } else if ( curHour.equals("06") || curHour.equals("07")){
             fr = new FragmentThree();
-        } else if ( curHour.equals("21") )
+        } else if ( curHour.equals("23") || curHour.equals("22") )
         {
             fr = new FragmentFour();
-        } else {
+        } else if ( curHour.equals("01")) {
             fr = new FragmentOne();
+        }
+        else {
+            fr = new FragmentFive();
         }
 
         FragmentManager fm = getFragmentManager();
