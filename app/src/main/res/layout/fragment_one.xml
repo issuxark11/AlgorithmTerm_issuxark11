@@ -8,18 +8,25 @@
 
     <TextView
         android:id="@+id/newstitle"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        android:textStyle="bold" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_centerHorizontal="true"
+        style="@style/titleStyle" />
 
     <WebView
         android:id="@+id/webViewNews"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_below="@+id/newstitle"
         android:layout_above="@+id/NewsBtn"
-        android:layout_alignParentStart="true" />
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="70dp"
+        android:layout_marginRight="70dp"
+        android:layout_marginLeft="70dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true" />
 
     <Button
         android:id="@+id/NewsBtn"
@@ -33,6 +40,7 @@
     <ListView
         android:id="@+id/screen"
         android:layout_width="wrap_content"
-        android:layout_height="0dp" >
+        android:layout_height="0dp"
+        android:layout_below="@+id/NewsBtn">
     </ListView>
 </RelativeLayout>

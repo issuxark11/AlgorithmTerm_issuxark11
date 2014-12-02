@@ -21,6 +21,11 @@
             android:name=".LockScreenActivity"/>
         <service android:name=".MyService"/>
         <receiver android:name=".MyReceiver"/>
+
+        <activity
+            android:name="Webview">
+        </activity>
+
     </application>
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>

@@ -1,6 +1,7 @@
 package example.Android.issuxark11.simplelockscreen;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -52,7 +53,6 @@ public class FragmentOne extends Fragment {
         View view = inflater.inflate(R.layout.fragment_one, container, false);
         index=0;
         array=new int[1000];
-        NewsBtn=(Button)view.findViewById(R.id.NewsBtn);
 
         screen=(ListView)view.findViewById(R.id.screen);
         arrList = new ArrayList<String>();   // tile
@@ -103,29 +103,22 @@ public class FragmentOne extends Fragment {
         NewsTitle.setText(arrList.get(array[index]).toString());
 
         NewsImgWV = (WebView) view.findViewById(R.id.webViewNews);
+        NewsImgWV.setHorizontalScrollBarEnabled(false); // 세로 scroll 제거
+        NewsImgWV.setVerticalScrollBarEnabled(false); // 가로 scroll 제거
+        //NewsImgWV.getSettings().setUseWideViewPort(true);
+        //NewsImgWV.setInitialScale(100);
         NewsImgWV.loadUrl(arrList4.get(array[index]).toString());
-/*
-        NewsImgWV.post(new Runnable() {
-            @Override
-            public void run() {
-                NewsImgWV.setHorizontalScrollBarEnabled(false); // 세로 scroll 제거
-                NewsImgWV.setVerticalScrollBarEnabled(false); // 가로 scroll 제거
-                NewsImgWV.getSettings().setUseWideViewPort(true);
-                NewsImgWV.setInitialScale(1);
-                NewsImgWV.loadUrl(HumorURL);
-            }
-        });
-*/
-       /*
+
+        NewsBtn=(Button)view.findViewById(R.id.NewsBtn);
+
         NewsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, Webview.class);
+                Intent i = new Intent(getActivity(), Webview.class);
                 i.putExtra("url", arrList2.get(index).toString());
                 startActivity(i);
             }
         });
-        */
         return view;
     }
 
