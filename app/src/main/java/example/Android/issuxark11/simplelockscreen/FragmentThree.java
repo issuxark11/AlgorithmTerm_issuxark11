@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 
+// Humor Fragment
 public class FragmentThree extends Fragment {
 
     private static String HumorURL = "http://algorithmic.pe.hu/algo.html";

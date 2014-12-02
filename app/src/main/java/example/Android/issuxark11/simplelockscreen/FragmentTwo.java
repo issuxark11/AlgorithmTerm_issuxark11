@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 
+// Sports Score Fragment
 public class FragmentTwo extends Fragment {
     private static String ScoreURL = "http://algoalgo.esy.es/algo.php";
     WebView webview;

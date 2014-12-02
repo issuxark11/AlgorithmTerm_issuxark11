@@ -1,17 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#00ffff">
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/Fr_textView1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:text="This is fragment No.1"
         android:textStyle="bold" />
+
+    <WebView
+        android:id="@+id/NewsWebView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.87" />
+
+    <Button
+        android:id="@+id/NewsBtn"
+        android:text="Visit Web Site"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>
