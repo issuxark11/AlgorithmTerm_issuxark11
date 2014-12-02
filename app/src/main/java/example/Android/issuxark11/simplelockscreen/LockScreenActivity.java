@@ -293,16 +293,20 @@ public class LockScreenActivity extends Activity {
 
         if(curHour.equals("10") || curHour.equals("11") || curHour.equals("12") || curHour.equals("13") || curHour.equals("14") || curHour.equals("15")){
             fr = new FragmentTwo();
-        } else if (curHour.equals("21") || curHour.equals("22") || curHour.equals("23") || curHour.equals("24") || curHour.equals("06") || curHour.equals("07")){
+        } else if ( curHour.equals("06") || curHour.equals("07")){
             fr = new FragmentThree();
-        }
-        else {
+        } else if ( curHour.equals("21") )
+        {
+            fr = new FragmentFour();
+        } else {
             fr = new FragmentOne();
         }
 
         FragmentManager fm = getFragmentManager();
+        fm.popBackStack();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
         fragmentTransaction.replace(R.id.fragment_main, fr);
+        fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
 }
