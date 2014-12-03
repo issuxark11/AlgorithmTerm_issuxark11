@@ -38,4 +38,67 @@
         android:layout_alignTop="@+id/onBtn"
         android:layout_centerHorizontal="true" />
 
+    <TextView
+        android:id="@+id/descriptionView"
+        android:text="@string/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_below="@+id/onBtn" />
+
+    <TextView
+        android:id="@+id/descriptionView1"
+        android:text="@string/description0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_below="@+id/descriptionView" />
+
+    <TextView
+        android:id="@+id/descriptionView2"
+        android:text="@string/description1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_below="@+id/descriptionView1" />
+
+
+    <TextView
+        android:id="@+id/descriptionView3"
+        android:text="@string/description11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_below="@+id/descriptionView2" />
+
+    <TextView
+        android:id="@+id/descriptionView4"
+        android:text="@string/description2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_below="@+id/descriptionView3" />
+
+    <TextView
+        android:id="@+id/descriptionView5"
+        android:text="@string/description3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_below="@+id/descriptionView4" />
+
+    <TextView
+        android:id="@+id/descriptionView6"
+        android:text="@string/description4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_below="@+id/descriptionView5" />
+
 </RelativeLayout>

@@ -5,5 +5,11 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_config">ConfigActivity</string>
-
+    <string name="description">QuickBoard를 이용해 주셔서 감사합니다 </string>
+    <string name="description0">On button을 누르게 되면 잠금화면 서비스가 시작됩니다</string>
+    <string name="description1">사용법</string>
+    <string name="description11">스마트폰의 화면이 켜질때 QuickBoard가 실행됩니다</string>
+    <string name="description2">1.화면 하단의 가운데 버튼에서 슬라이드를 시작해주세요</string>
+    <string name="description3">2.정보가 마음에 든다면 LIKE 방향으로 마음에 들지 않는다면 HATE방향으로 슬라이드해주세요 </string>
+    <string name="description4">3.자세한 정보가 보고 싶으시면 MORE 버튼을 눌러주세요 </string>
 </resources>
