@@ -61,14 +61,6 @@ public class LockScreenActivity extends Activity {
         // 순정 잠금 화면 없애기
         setContentView(R.layout.activity_lock_screen);
 
-        ConfBtn = (Button) findViewById(R.id.Configbtn);
-        ConfBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(LockScreenActivity.this, ConfigActivity.class);
-                startActivity(intent);
-            }
-        });
         // LockScreen End
 
         dateText = (TextView) findViewById(R.id.dateText);
@@ -296,13 +288,14 @@ public class LockScreenActivity extends Activity {
     public void selectFrag(String curHour) {     // Fragment Select
         Fragment fr;
 
-        if(curHour.equals("15") || curHour.equals("16") || curHour.equals("17") ) {
+        if( curHour.equals("09") || curHour.equals("10") || curHour.equals("11") ||
+                curHour.equals("14") || curHour.equals("15") || curHour.equals("16") || curHour.equals("18") ) {
             fr = new FragmentOne();
-        } else if ( curHour.equals("22") || curHour.equals("07")) {
+        } else if ( curHour.equals("20") || curHour.equals("21") || curHour.equals("22")) {
             fr = new FragmentTwo();
-        } else if ( curHour.equals("01") ) {
+        } else if ( curHour.equals("12") || curHour.equals("18") || curHour.equals("19") ) {
             fr = new FragmentThree();
-        } else if ( curHour.equals("18") || curHour.equals("19") ) {
+        } else if ( curHour.equals("07") || curHour.equals("08")  || curHour.equals("13") || curHour.equals("14") || curHour.equals("17") ) {
             fr = new FragmentFour();
         } else {
             fr = new FragmentFive();

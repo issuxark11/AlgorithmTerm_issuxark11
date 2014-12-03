@@ -8,15 +8,15 @@
         android:id="@+id/dateText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
         style="@style/dateStyle" />
 
     <TextClock
         android:id="@+id/textClock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
+        android:layout_marginLeft="20dp"
         android:layout_below="@+id/dateText"
         style="@style/clockStyle" />
 
@@ -25,20 +25,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
         android:layout_below="@+id/textClock" />
 
     <ImageView
         android:id="@+id/weatherIcon"
         android:layout_width="150px"
         android:layout_height="150px"
+        android:layout_marginTop="15dp"
         android:layout_centerHorizontal="true" />
 
     <TextView
         android:id="@+id/temp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="40dp"
         android:layout_alignBaseline="@+id/weatherIcon"
         android:layout_toRightOf="@+id/weatherIcon"
@@ -53,30 +55,23 @@
         android:layout_alignBaseline="@+id/weatherIcon"
         android:layout_toRightOf="@+id/weatherIcon" />
 
-    <Button
-        android:id="@+id/Configbtn"
-        android:text="Configure"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="37dp"
-        android:layout_below="@+id/cityText"
-        android:layout_alignBaseline="@+id/weatherIcon"
-        android:layout_toRightOf="@+id/weatherIcon" />
-
     <fragment
         android:id="@+id/fragment_main"
         android:name="example.Android.issuxark11.simplelockscreen.FragmentFive"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/Configbtn"
-        android:layout_above="@+id/SetPosImg" />
+        android:layout_above="@+id/SetPosImg"
+        android:layout_below="@+id/cityText"
+        android:layout_marginTop="10dp"
+        android:layout_alignBaseline="@+id/weatherIcon" />
 
     <ImageView
         android:id="@+id/SetPosImg"
         android:src="@drawable/slide"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="135dp"
+        android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/cityText" />
+        android:scaleType="fitXY" />
 
 </RelativeLayout>
