@@ -118,6 +118,7 @@ public class FragmentOne extends Fragment {
                 Intent i = new Intent(getActivity(), Webview.class);
                 i.putExtra("url", arrList2.get(array[index]).toString());
                 startActivity(i);
+                getActivity().finish();
             }
         });
         return view;

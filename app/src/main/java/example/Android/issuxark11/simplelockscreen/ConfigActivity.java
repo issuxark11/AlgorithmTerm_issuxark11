@@ -23,6 +23,7 @@ public class ConfigActivity extends Activity {
             public void onClick(View view) {
                 Intent intent = new Intent(ConfigActivity.this, MyService.class);
                 startService(intent);
+                ConfigActivity.this.finish();
             }
         });
 
@@ -31,6 +32,7 @@ public class ConfigActivity extends Activity {
             public void onClick(View view) {
                 Intent intent = new Intent(ConfigActivity.this, MyService.class);
                 stopService(intent);
+                ConfigActivity.this.finish();
             }
         });
     }

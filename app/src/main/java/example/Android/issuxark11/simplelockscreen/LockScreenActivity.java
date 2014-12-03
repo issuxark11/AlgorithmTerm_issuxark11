@@ -131,11 +131,13 @@ public class LockScreenActivity extends Activity {
                     writeFile(file , content.getBytes());
 
                     SystemClock.sleep(1000);
+                    LockScreenActivity.this.finish();
+                    /*
                     Intent intent = new Intent(Intent.ACTION_MAIN);
                     intent.addCategory(Intent.CATEGORY_HOME);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
-
+*/
                     i=0;
                 }
                 else if(event.getX()<=viewX-40 && event.getX()>viewX-70 && i==1)
@@ -153,11 +155,12 @@ public class LockScreenActivity extends Activity {
                     writeFile(file , content.getBytes());
 
                     SystemClock.sleep(1000);
-                    Intent intent = new Intent(Intent.ACTION_MAIN);
+                    LockScreenActivity.this.finish();
+                    /*Intent intent = new Intent(Intent.ACTION_MAIN);
                     intent.addCategory(Intent.CATEGORY_HOME);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
-
+*/
                     i=0;
                 }
                 return true;
