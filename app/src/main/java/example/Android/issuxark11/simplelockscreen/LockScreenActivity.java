@@ -291,13 +291,13 @@ public class LockScreenActivity extends Activity {
     public void selectFrag(String curHour) {     // Fragment Select
         Fragment fr;
 
-        if(curHour.equals("01") || curHour.equals("00") ) {
+        if(curHour.equals("15") || curHour.equals("16") || curHour.equals("17") ) {
             fr = new FragmentOne();
         } else if ( curHour.equals("22") || curHour.equals("07")) {
             fr = new FragmentTwo();
         } else if ( curHour.equals("01") ) {
             fr = new FragmentThree();
-        } else if ( curHour.equals("21")) {
+        } else if ( curHour.equals("18") || curHour.equals("19") ) {
             fr = new FragmentFour();
         } else {
             fr = new FragmentFive();

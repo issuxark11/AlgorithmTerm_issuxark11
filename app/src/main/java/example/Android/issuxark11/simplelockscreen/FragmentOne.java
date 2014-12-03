@@ -105,8 +105,8 @@ public class FragmentOne extends Fragment {
         NewsImgWV = (WebView) view.findViewById(R.id.webViewNews);
         NewsImgWV.setHorizontalScrollBarEnabled(false); // 세로 scroll 제거
         NewsImgWV.setVerticalScrollBarEnabled(false); // 가로 scroll 제거
-        //NewsImgWV.getSettings().setUseWideViewPort(true);
-        //NewsImgWV.setInitialScale(100);
+        NewsImgWV.getSettings().setUseWideViewPort(true);
+        NewsImgWV.setInitialScale(300);
         NewsImgWV.loadUrl(arrList4.get(array[index]).toString());
 
         NewsBtn=(Button)view.findViewById(R.id.NewsBtn);
@@ -161,13 +161,11 @@ public class FragmentOne extends Fragment {
                                         if (title.length()>0) {
                                             arrList.add(title);
                                         }
-                                      //  Log.d("fureun", title+"("+title.length()+")");
                                     }if(tagName.equals("link")){
                                         link = xpp.getText().trim();
                                         if(link.length()>0){
                                             arrList2.add(link);
                                         }
-                                       // Log.d("fureun",link);
                                     }
                                     if(tagName.equals("description")){
                                         imgurl = xpp.getText().trim();
@@ -183,17 +181,13 @@ public class FragmentOne extends Fragment {
                                                 arrList4.add(null);
 
                                             }
-
-                                 //           Log.d("fureun",imgurl);
                                         }
                                     }
                                     num++;
-                               //     Log.d("fureun", ""+num);
                                 }
                             }
                             eventType = xpp.next();
                         }
-                        //Log.d("fureun","End document");
                     }
                 }
                 eventType = xpp.next();
