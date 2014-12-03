@@ -32,6 +32,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import java.io.File;
+import java.util.Random;
 
 @SuppressLint({ "ClickableViewAccessibility", "NewApi" })
 
@@ -51,6 +52,9 @@ public class LockScreenActivity extends Activity {
     SimpleDateFormat CurHourFormat = new SimpleDateFormat("HH");
     String strCurDate = CurDateFormat.format(date);
     String strCurHour = CurHourFormat.format(date);
+
+    Random rd;
+    public static int sel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,16 +93,63 @@ public class LockScreenActivity extends Activity {
         File dir = makeDirectory(STRSAVEPATH);
         final File file = makeFile(dir, STRSAVEPATH+"MyFile.txt");
 
-        final int g_c, gi_like, gi_hate;
-        final String g_like, g_hate;
+        int[] g_c = new int[7];
+        final int po_gi_like, po_gi_hate, na_gi_like, na_gi_hate, ec_gi_like, ec_gi_hate, cu_gi_like, cu_gi_hate;
+        final String po_g_like, po_g_hate, na_g_like, na_g_hate, ec_g_like, ec_g_hate, cu_g_like, cu_g_hate;
 
         getcontent=readFile(file);
         String ct=new String(getcontent);
-        g_c=findMiddle(ct);
-        g_like=ct.substring(0, g_c);
-        g_hate=ct.substring(g_c+1, ct.length());
-        gi_like=Integer.parseInt(g_like);
-        gi_hate=Integer.parseInt(g_hate);
+        g_c = findMiddle(ct);
+        po_g_like=ct.substring(0, g_c[0]);
+        po_g_hate=ct.substring(g_c[0]+1, g_c[1]);
+        na_g_like=ct.substring(0, g_c[0]);
+        na_g_hate=ct.substring(g_c[0]+1, g_c[1]);
+        ec_g_like=ct.substring(0, g_c[0]);
+        ec_g_hate=ct.substring(g_c[0]+1, g_c[1]);
+        cu_g_like=ct.substring(0, g_c[0]);
+        cu_g_hate=ct.substring(g_c[0]+1, g_c[1]);
+        po_gi_like=Integer.parseInt(po_g_like);
+        po_gi_hate=Integer.parseInt(po_g_hate);
+        na_gi_like=Integer.parseInt(na_g_like);
+        na_gi_hate=Integer.parseInt(na_g_hate);
+        ec_gi_like=Integer.parseInt(ec_g_like);
+        ec_gi_hate=Integer.parseInt(ec_g_hate);
+        cu_gi_like=Integer.parseInt(cu_g_like);
+        cu_gi_hate=Integer.parseInt(cu_g_hate);
+
+        int po_sel=po_gi_like-po_gi_hate+100;
+        int na_sel=na_gi_like-na_gi_hate+100;
+        int ec_sel=ec_gi_like-ec_gi_hate+100;
+        int cu_sel=cu_gi_like-cu_gi_hate+100;
+
+        if(po_sel<50)
+            po_sel=50;
+        if(po_sel>200)
+            po_sel=200;
+        if(na_sel<50)
+            na_sel=50;
+        if(na_sel>200)
+            na_sel=200;
+        if(ec_sel<50)
+            ec_sel=50;
+        if(ec_sel>200)
+            ec_sel=200;
+        if(cu_sel<50)
+            cu_sel=50;
+        if(cu_sel>200)
+            cu_sel=200;
+
+        rd=new Random();
+
+        int ran_sum=rd.nextInt(po_sel+na_sel+ec_sel+cu_sel);
+        if(ran_sum<=po_sel)
+            sel=1;
+        else if(ran_sum>po_sel && ran_sum<=(po_sel+na_sel))
+            sel=2;
+        else if(ran_sum>(po_sel+na_sel)&& ran_sum<=(po_sel+na_sel+ec_sel))
+            sel=3;
+        else
+            sel=0;
 
         final int[] location= new int[2];
         SetPosImg.getLocationOnScreen(location);
@@ -122,12 +173,34 @@ public class LockScreenActivity extends Activity {
                     i=3;
                 else if(event.getX()>=viewX+100 && event.getX()<viewX+120 && i==3)
                 {
-                    int ch_like=gi_like+1, ch_hate=gi_hate;
-                    String s_like, s_hate;
-                    s_like=String.valueOf(ch_like);
-                    s_hate=String.valueOf(ch_hate);
-
-                    String content = s_like+"c"+s_hate;
+                    int ch_like;
+                    String s_like;
+                    String content;
+                    if(sel==1){
+                        ch_like=po_gi_like+1;
+                        s_like=String.valueOf(ch_like);
+                        content = s_like+"c"+po_g_hate+"c"+na_g_like+"c"+na_g_hate+"c"+ec_g_like+"c"+
+                                ec_g_hate+"c"+cu_g_like+"c"+cu_g_hate;
+                    }else if(sel==2){
+                        ch_like=na_gi_like+1;
+                        s_like=String.valueOf(ch_like);
+                        content = po_g_like+"c"+po_g_hate+"c"+s_like+"c"+na_g_hate+"c"+ec_g_like+"c"+
+                                ec_g_hate+"c"+cu_g_like+"c"+cu_g_hate;
+                    }else if(sel==3){
+                        ch_like=ec_gi_like+1;
+                        s_like=String.valueOf(ch_like);
+                        content = po_g_like+"c"+po_g_hate+"c"+na_g_like+"c"+na_g_hate+"c"+s_like+"c"+
+                                ec_g_hate+"c"+cu_g_like+"c"+cu_g_hate;
+                    }else if(sel==0){
+                        ch_like=cu_gi_like+1;
+                        s_like=String.valueOf(ch_like);
+                        content = po_g_like+"c"+po_g_hate+"c"+na_g_like+"c"+na_g_hate+"c"+ec_g_like+"c"+
+                                ec_g_hate+"c"+s_like+"c"+cu_g_hate;
+                    }
+                    else{
+                        content = po_g_like+"c"+po_g_hate+"c"+na_g_like+"c"+na_g_hate+"c"+ec_g_like+"c"+
+                                ec_g_hate+"c"+cu_g_like+"c"+cu_g_hate;
+                    }
                     writeFile(file , content.getBytes());
 
                     SystemClock.sleep(1000);
@@ -137,7 +210,7 @@ public class LockScreenActivity extends Activity {
                     intent.addCategory(Intent.CATEGORY_HOME);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
-*/
+                    */
                     i=0;
                 }
                 else if(event.getX()<=viewX-40 && event.getX()>viewX-70 && i==1)
@@ -146,21 +219,43 @@ public class LockScreenActivity extends Activity {
                     i=-3;
                 else if(event.getX()<=viewX-100 &&event.getX()>viewX-120 && i==-3)
                 {
-                    int ch_like=gi_like, ch_hate=gi_hate+1;
-                    String s_like, s_hate;
-                    s_like=String.valueOf(ch_like);
-                    s_hate=String.valueOf(ch_hate);
-
-                    String content = s_like+"c"+s_hate;
+                    int ch_hate;
+                    String s_hate;
+                    String content;
+                    if(sel==1){
+                        ch_hate=po_gi_hate+1;
+                        s_hate=String.valueOf(ch_hate);
+                        content = po_g_like+"c"+s_hate+"c"+na_g_like+"c"+na_g_hate+"c"+ec_g_like+"c"+
+                                ec_g_hate+"c"+cu_g_like+"c"+cu_g_hate;
+                    }else if(sel==2){
+                        ch_hate=na_gi_hate+1;
+                        s_hate=String.valueOf(ch_hate);
+                        content = po_g_like+"c"+po_g_hate+"c"+na_g_like+"c"+s_hate+"c"+ec_g_like+"c"+
+                                ec_g_hate+"c"+cu_g_like+"c"+cu_g_hate;
+                    }else if(sel==3){
+                        ch_hate=ec_gi_hate+1;
+                        s_hate=String.valueOf(ch_hate);
+                        content = po_g_like+"c"+po_g_hate+"c"+na_g_like+"c"+na_g_hate+"c"+ec_g_like+"c"+
+                                s_hate+"c"+cu_g_like+"c"+cu_g_hate;
+                    }else if(sel==0){
+                        ch_hate=cu_gi_hate+1;
+                        s_hate=String.valueOf(ch_hate);
+                        content = po_g_like+"c"+po_g_hate+"c"+na_g_like+"c"+na_g_hate+"c"+ec_g_like+"c"+
+                                ec_g_hate+"c"+cu_g_like+"c"+s_hate;
+                    }else{
+                        content = po_g_like+"c"+po_g_hate+"c"+na_g_like+"c"+na_g_hate+"c"+ec_g_like+"c"+
+                                ec_g_hate+"c"+cu_g_like+"c"+cu_g_hate;
+                    }
                     writeFile(file , content.getBytes());
 
                     SystemClock.sleep(1000);
                     LockScreenActivity.this.finish();
-                    /*Intent intent = new Intent(Intent.ACTION_MAIN);
+                    /*
+                    Intent intent = new Intent(Intent.ACTION_MAIN);
                     intent.addCategory(Intent.CATEGORY_HOME);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
-*/
+                    */
                     i=0;
                 }
                 return true;
@@ -169,14 +264,18 @@ public class LockScreenActivity extends Activity {
         // Slide End
     }
 
-    private int findMiddle(String ct)
+    private int[] findMiddle(String ct)
     {
+        int[] r = new int[7];
+        int j=0;
         for(int i=0; i<ct.length(); i++)
         {
-            if(ct.charAt(i)=='c')
-                return i;
+            if(ct.charAt(i)=='c'){
+                r[j]=i;
+                j++;
+            }
         }
-        return -1;
+        return r;
     }
 
     private File makeDirectory(String dir_path){
@@ -184,7 +283,6 @@ public class LockScreenActivity extends Activity {
         if (!dir.exists())
         {
             dir.mkdirs();
-            Toast.makeText(getApplicationContext(), "Success folder", Toast.LENGTH_SHORT).show();
         }
         return dir;
     }
@@ -196,8 +294,7 @@ public class LockScreenActivity extends Activity {
             if(file!=null&&!file.exists()){
                 try {
                     file.createNewFile();
-                    Toast.makeText(this, "Success text", Toast.LENGTH_SHORT).show();
-                    String content_first = "0c0";
+                    String content_first = "0c0c0c0c0c0c0c0";
                     writeFile(file , content_first.getBytes());
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -290,7 +387,10 @@ public class LockScreenActivity extends Activity {
 
         if( curHour.equals("09") || curHour.equals("10") || curHour.equals("11") ||
                 curHour.equals("14") || curHour.equals("15") || curHour.equals("16") || curHour.equals("17") || curHour.equals("18") ) {
+            Bundle args = new Bundle();
+            args.putInt("select", sel);
             fr = new FragmentOne();
+            fr.setArguments(args);
         } else if ( curHour.equals("20") || curHour.equals("21") || curHour.equals("22")) {
             fr = new FragmentTwo();
         } else if ( curHour.equals("12") || curHour.equals("18") || curHour.equals("19") ) {

@@ -67,8 +67,8 @@ public class FragmentOne extends Fragment {
         arrList4.clear();
         adapter.notifyDataSetChanged();
 
-        rd=new Random();
-        int sel=rd.nextInt(12)%4;
+        Bundle bundle = getArguments();
+        int sel = bundle.getInt("select");
 
         switch(sel)
         {
@@ -82,7 +82,6 @@ public class FragmentOne extends Fragment {
         thread.setDaemon(true);
         thread.start();
 
-        //Log.d("fureun", "ÀÛµ¿Áß");
         try{
             thread.join();
         }catch(Exception e){
@@ -98,6 +97,7 @@ public class FragmentOne extends Fragment {
                 j++;
             }
         }
+        rd=new Random();
         index=rd.nextInt(100)%j;
 
         NewsTitle=(TextView)view.findViewById(R.id.newstitle);
@@ -181,7 +181,6 @@ public class FragmentOne extends Fragment {
                                             else
                                             {
                                                 arrList4.add(null);
-
                                             }
                                         }
                                     }
