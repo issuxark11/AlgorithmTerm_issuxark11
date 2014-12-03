@@ -21,7 +21,7 @@
         android:layout_below="@+id/newstitle"
         android:layout_above="@+id/NewsBtn"
         android:layout_marginTop="30dp"
-        android:layout_marginBottom="130dp"
+        android:layout_marginBottom="30dp"
         android:layout_marginRight="80dp"
         android:layout_marginLeft="80dp"
         android:layout_centerHorizontal="true"

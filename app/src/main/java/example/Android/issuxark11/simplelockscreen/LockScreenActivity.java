@@ -3,6 +3,7 @@ package example.Android.issuxark11.simplelockscreen;
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.os.SystemClock;
+import android.util.DisplayMetrics;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.app.Activity;
@@ -113,9 +114,13 @@ public class LockScreenActivity extends Activity {
         final int[] location= new int[2];
         SetPosImg.getLocationOnScreen(location);
 
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        final int screenWidth = metrics.widthPixels;
+
         SetPosImg.setOnTouchListener(new View.OnTouchListener()
         {
-            int viewX=location[0]+195;
+            int viewX=location[0]+screenWidth/2;
 
             @Override
             public boolean onTouch(View v, MotionEvent event) {
