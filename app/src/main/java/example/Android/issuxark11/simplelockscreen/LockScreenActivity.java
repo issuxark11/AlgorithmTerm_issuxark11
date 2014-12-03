@@ -100,9 +100,6 @@ public class LockScreenActivity extends Activity {
         gi_like=Integer.parseInt(g_like);
         gi_hate=Integer.parseInt(g_hate);
 
-        //Toast.makeText(getApplicationContext(), g_like, Toast.LENGTH_SHORT).show();
-        //Toast.makeText(getApplicationContext(), g_hate, Toast.LENGTH_SHORT).show();
-
         final int[] location= new int[2];
         SetPosImg.getLocationOnScreen(location);
 
@@ -289,13 +286,13 @@ public class LockScreenActivity extends Activity {
         Fragment fr;
 
         if( curHour.equals("09") || curHour.equals("10") || curHour.equals("11") ||
-                curHour.equals("14") || curHour.equals("15") || curHour.equals("16") || curHour.equals("18") ) {
+                curHour.equals("14") || curHour.equals("15") || curHour.equals("16") || curHour.equals("17") || curHour.equals("18") ) {
             fr = new FragmentOne();
         } else if ( curHour.equals("20") || curHour.equals("21") || curHour.equals("22")) {
             fr = new FragmentTwo();
         } else if ( curHour.equals("12") || curHour.equals("18") || curHour.equals("19") ) {
             fr = new FragmentThree();
-        } else if ( curHour.equals("07") || curHour.equals("08")  || curHour.equals("13") || curHour.equals("14") || curHour.equals("17") ) {
+        } else if ( curHour.equals("07") || curHour.equals("08")  || curHour.equals("13") || curHour.equals("14")  ) {
             fr = new FragmentFour();
         } else {
             fr = new FragmentFive();

@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -32,7 +33,7 @@ public class FragmentOne extends Fragment {
     int[] array;
     TextView NewsTitle;
     WebView NewsImgWV;
-    Button NewsBtn;
+    ImageButton NewsBtn;
     ListView screen;
     ArrayList<String> arrList,arrList2, arrList4;
     ArrayAdapter<String> adapter;
@@ -109,13 +110,13 @@ public class FragmentOne extends Fragment {
         NewsImgWV.setInitialScale(300);
         NewsImgWV.loadUrl(arrList4.get(array[index]).toString());
 
-        NewsBtn=(Button)view.findViewById(R.id.NewsBtn);
+        NewsBtn=(ImageButton)view.findViewById(R.id.NewsBtn);
 
         NewsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), Webview.class);
-                i.putExtra("url", arrList2.get(index).toString());
+                i.putExtra("url", arrList2.get(array[index]).toString());
                 startActivity(i);
             }
         });

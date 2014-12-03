@@ -9,19 +9,33 @@
     tools:context="example.Android.issuxark11.simplelockscreen.ConfigActivity">
 
 
-    <Button
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="On Button"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Quick Board"
+        android:id="@+id/textView"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="40dp"
+        android:layout_alignParentStart="true"
+        style="@style/dataStyle"/>
+
+    <Button
         android:id="@+id/onBtn"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:text="On Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="30dp"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Off Button"
         android:id="@+id/offBtn"
-        android:layout_below="@+id/onBtn"
-        android:layout_alignParentStart="true" />
+        android:layout_alignTop="@+id/onBtn"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>
