@@ -1,7 +1,6 @@
 package example.Android.issuxark11.simplelockscreen;
 
 import android.annotation.SuppressLint;
-import android.app.ActionBar;
 import android.os.SystemClock;
 import android.util.DisplayMetrics;
 import android.view.KeyEvent;
@@ -10,7 +9,6 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -20,8 +18,6 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import org.json.JSONException;
 
 import java.io.FileInputStream;
@@ -393,12 +389,16 @@ public class LockScreenActivity extends Activity {
             fr.setArguments(args);
         } else if ( curHour.equals("20") || curHour.equals("21") || curHour.equals("22")) {
             fr = new FragmentTwo();
+            sel = 5;
         } else if ( curHour.equals("12") || curHour.equals("18") || curHour.equals("19") ) {
             fr = new FragmentThree();
+            sel = 5;
         } else if ( curHour.equals("07") || curHour.equals("08")  || curHour.equals("13") || curHour.equals("14")  ) {
             fr = new FragmentFour();
+            sel = 5;
         } else {
             fr = new FragmentFive();
+            sel = 5;
         }
 
         FragmentManager fm = getFragmentManager();

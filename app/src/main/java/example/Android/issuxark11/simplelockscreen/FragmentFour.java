@@ -21,7 +21,8 @@ public class FragmentFour extends Fragment {
             public void onSelectedDayChange(CalendarView view,
                                             int year, int month, int dayOfMonth) {
                 Toast.makeText(getActivity(),
-                        dayOfMonth +"/"+month+"/"+ year,Toast.LENGTH_LONG).show();}});
+                        dayOfMonth +"/"+month+"/"+ year,Toast.LENGTH_LONG).show();
+            }});
 
         return view;
     }
